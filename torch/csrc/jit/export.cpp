@@ -637,7 +637,7 @@ void ScriptModuleSerializer::writeLibs(torch::ModelDef* model_def) {
 
     // For the type, foo.bar.Baz
     const std::string filename = ImportExportHelpers::qualifierToPath(
-        class_type->qualifier(), proto_version_);
+        class_type->name()->prefix(), proto_version_);
     // End state: filename is "foo/bar.py", in which we will define a class
     // named Baz
     auto& stream = fileToSrc[filename];
